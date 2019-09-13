@@ -51,6 +51,8 @@ lib*.a
 /src/tools/mac/dump_syms/dump_syms_mac
 
 /out
+obj/
+libs/
 
 # Ignore unit test artifacts.
 *_unittest
