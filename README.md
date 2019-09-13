@@ -1,5 +1,53 @@
 # Breakpad
 
+## Build tools
+
+```sh
+./configure --prefix=`pwd`/out && make && make install
+cp analyse.sh out/bin
+```
+get the out for linux tools
+
+## Build libbreakpad_client.a for Android
+
+```sh
+cd android/sample_app/jni
+ndk-build
+```
+
+## Use breakpad_client in your project
+
+1.  Add code in your source. see [test_breakpad.cpp](android/sample_app/jni/test_breakpad.cpp)
+
+2.  Add include dir in makefile：
+```makefile
+LOCAL_INCLUDE += -I$(BREAK_PAD)/include/breakpad
+```
+3.  Add lib reference in makefile：
+```makefile
+LOCAL_LIBS += -lbreakpad_client
+```
+
+## Get stack from dump file
+
+1.  makedir prj_dir and cp project libs with debug info(-g) to prj_dir/libs
+```sh
+makedir prj_dir
+cp libs prj_dir/
+```
+
+2.  makedir prj_dir/dmp and cp dump files(form device when app crash) to prj_dir/dmp  
+
+3.  run bin/analyse.sh to get the stack trace
+```sh
+bin/analyse.sh prj_dir
+```
+
+
+# Official Documents
+
+# Breakpad
+
 Breakpad is a set of client and server components which implement a
 crash-reporting system.
 
