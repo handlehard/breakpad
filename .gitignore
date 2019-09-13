@@ -50,6 +50,8 @@ lib*.a
 /src/tools/mac/dump_syms/dump_syms
 /src/tools/mac/dump_syms/dump_syms_mac
 
+/out
+
 # Ignore unit test artifacts.
 *_unittest
 *.log
@@ -84,6 +86,5 @@ src/Makefile
 
 # Ignore directories gclient syncs.
 src/testing
-src/third_party/lss
 src/third_party/protobuf
 src/tools/gyp
